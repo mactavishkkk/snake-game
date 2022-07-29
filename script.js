@@ -97,7 +97,7 @@ function checkHitWall() {
     } else if (headTail.x == canvas.width) {
         headTail.x = 0
     } else if (headTail.y == - snake.size) {
-        headTail.y= canvas.height - snake.size
+        headTail.y = canvas.height - snake.size
     } else if (headTail.y == - canvas.height) {
         headTail.y = 0
     }
@@ -145,3 +145,13 @@ window.addEventListener('keydown', (event) => {
         }
     }, 1)
 })
+
+const reload = (event) => {
+    const key = event.key;
+
+    if (key === 'r') {
+        location.reload();
+    }
+}
+
+document.addEventListener('keydown', reload);
