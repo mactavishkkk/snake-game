@@ -69,8 +69,12 @@ var apple = new Apple();
 
 var canvasContext = canvas.getContext('2d');
 
-window.onload = () => {
-    gameLoop();
+const startGame = (event) => {
+    const key = event.key;
+
+    if (key === 'Enter') {
+        gameLoop();
+    }
 }
 
 function gameLoop() {
@@ -92,7 +96,7 @@ function update() {
 function checkHitWall() {
     var headTail = snake.tail[snake.tail.length - 1];
 
-    if (headTail.x == - snake.size) {
+    if (headTail.x == - snake.sizgameStarte) {
         headTail.x = canvas.width - snake.size
     } else if (headTail.x == canvas.width) {
         headTail.x = 0
@@ -154,4 +158,5 @@ const reload = (event) => {
     }
 }
 
+document.addEventListener('keydown', startGame);
 document.addEventListener('keydown', reload);
